@@ -13,26 +13,19 @@ function RotateGameArray(){
 }
 
 function refreshContent(){
-	
-	//document.getElementById("contentDiv").innerHTML = getMMArrayAsTableHTML(originalArray, M);
 	document.getElementById("contentDiv").innerHTML = getMMArrayAsColorBlock(originalArray, M);
 }
+
 </script>
 </head>
 
 <body>
 
-
 <div id="contentDiv"></div>
 <button onclick="RotateGameArray()">Rotate</button>
-<br />
-<div id="DebugAreaDiv"></div>
-
 
 <script type="text/javascript">
-// ************************************************************************************************
-// START OF SCRIPT
-// ************************************************************************************************
+
 var M = 5;
 
 // Create 2D array.
@@ -58,10 +51,7 @@ for(var i=0;i<M;i++){
 	}
 }
 
-//document.getElementById("contentDiv").innerHTML = getMMArrayAsTableHTML(originalArray, M);
-document.getElementById("contentDiv").innerHTML = getMMArrayAsColorBlock(originalArray, M);
-
-document.getElementById("DebugAreaDiv").innerHTML += "Length: " + originalArray.length;
+refreshContent();
 
 </script>
 
