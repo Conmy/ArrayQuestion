@@ -2,22 +2,6 @@
 // Name		:	Array Functions
 // Author	:	David Conmy
 // ================================================================================================
-function getMMArrayAsTableHTML(array, M){
-	var text = "<table>";
-	for(var i=0;i<M;i++){
-		text += "<tr>";
-		for(var j=0;j<M;j++){
-			text += "<td>";
-			text += array[i][j].toString();
-			text += "</td>";
-		}
-		text += "</tr>";
-	}
-	text += "</table>";
-	
-	return text;
-}
-
 function getMMArrayAsColorBlock(array, M){
 	var text = "<table>";
 	for(var i=0;i<M;i++){
@@ -50,20 +34,5 @@ function rotateMMArray(array, M){
 		}
 	}
 	
-	return newArray;
-}
-
-function copyMMArray(array, M){
-	
-	var newArray = new Array(M);
-	for(var i=0;i<M;i++){
-		newArray[i] = new Array(M);
-	}
-	
-	for(var a=0;a<M;a++){
-		for(var b=0; b<M; b++){
-			newArray[a][b] = array[a][b];
-		}
-	}
 	return newArray;
 }
