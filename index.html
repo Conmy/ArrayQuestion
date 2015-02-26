@@ -1,16 +1,83 @@
+<!-- 
+===================================================================================================
+Description	: Javascript example of rotating an M x M array.
+===================================================================================================
+-->
+
 <html>
 
 <head>
 <title>Array Manipulation.</title>
-<link href="style.css" rel="stylesheet" type="text/css">
-<script src="ArrayFunctions.js" type="text/javascript"></script>
-<script type="text/javascript">
+<style>
+.colorBlock {
+	width: 50px;
+	height: 50px;
+}
+</style>
 
+<script type="text/javascript">
+// IMPORTANT PART: Rotate the array 90 degrees right.
+function rotateMMArray(array){
+	var M = array.length;
+	var newArray = new Array(M);
+	for(var i=0;i<M;i++){
+		newArray[i] = new Array(M);
+	}
+	
+	for(var a=0;a<M;a++){
+		for(var b=M-1;b>=0;b--){
+			var q = M - a - 1;
+			var p = b;
+			
+			newArray[p][q] = array[a][b];
+		}
+	}
+	
+	return newArray;
+}
+// Show the array as a block of colours on the page.
+function getMMArrayAsColorBlock(array){
+	var M = array.length;
+	var text = "<table>";
+	for(var i=0;i<M;i++){
+		text += "<tr>";
+		for(var j=0;j<M;j++){
+			text += "<td>";
+			text += "<div class='colorBlock' style='background-color:" + array[i][j].toString() +"'></div>";
+			text += "</td>";
+		}
+		text += "</tr>";
+	}
+	text += "</table>";
+	
+	return text;
+}
+// Initialise some values for our "image".
+function initColorBlockArray(array){
+	var M = array.length;
+	// Populate the array with values.
+	for(var i=0;i<M;i++){
+		for (var j=0;j<M;j++){
+			if(i==0){
+				array[i][j] = "red";
+			}
+			else if(i%2 == 0){
+				array[i][j] = "green";
+			}
+			else{
+				array[i][j] = "yellow";
+			}
+		}
+	}
+	
+	return array;
+}
+// Called from html button.
 function RotateArray(){
 	originalArray = rotateMMArray(originalArray);
 	refreshContent();
 }
-
+// Used to update the array on the page.
 function refreshContent(){
 	document.getElementById("contentDiv").innerHTML = getMMArrayAsColorBlock(originalArray);
 }
@@ -18,13 +85,14 @@ function refreshContent(){
 </head>
 
 <body>
+
 <div id="contentDiv"></div>
 <button onclick="RotateArray()">Rotate</button>
+<br />
+<div id="DebugAreaDiv"></div>
 
 <script type="text/javascript">
-// ************************************************************************************************
-// START OF SCRIPT
-// ************************************************************************************************
+// Choose size of the array.
 var M = 5;
 
 // Create 2D array.
@@ -32,23 +100,11 @@ var originalArray = new Array(M);
 for(var i=0;i<M;i++){
 	originalArray[i] = new Array(M);
 }
-// Populate the array with values.
-var count=0;
-for(var i=0;i<M;i++){
-	for (var j=0;j<M;j++){
-		if(i==0){
-			originalArray[i][j] = "red";
-		}
-		else if(i%2 == 0){
-			originalArray[i][j] = "green";
-		}
-		else{
-			originalArray[i][j] = "yellow";
-		}
-	}
-}
 
-document.getElementById("contentDiv").innerHTML = getMMArrayAsColorBlock(originalArray);
+originalArray = initColorBlockArray(originalArray);
+
+refreshContent();
 </script>
+
 </body>
 </html>
