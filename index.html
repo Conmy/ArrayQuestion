@@ -6,8 +6,7 @@
 <script src="ArrayFunctions.js" type="text/javascript"></script>
 <script type="text/javascript">
 
-function RotateGameArray(){
-	
+function RotateArray(){
 	originalArray = rotateMMArray(originalArray);
 	refreshContent();
 }
@@ -19,13 +18,8 @@ function refreshContent(){
 </head>
 
 <body>
-
-
 <div id="contentDiv"></div>
-<button onclick="RotateGameArray()">Rotate</button>
-<br />
-<div id="DebugAreaDiv"></div>
-
+<button onclick="RotateArray()">Rotate</button>
 
 <script type="text/javascript">
 // ************************************************************************************************
@@ -42,7 +36,6 @@ for(var i=0;i<M;i++){
 var count=0;
 for(var i=0;i<M;i++){
 	for (var j=0;j<M;j++){
-	
 		if(i==0){
 			originalArray[i][j] = "red";
 		}
@@ -56,10 +49,6 @@ for(var i=0;i<M;i++){
 }
 
 document.getElementById("contentDiv").innerHTML = getMMArrayAsColorBlock(originalArray);
-
-document.getElementById("DebugAreaDiv").innerHTML += "Length: " + originalArray.length;
-
 </script>
-
 </body>
 </html>
