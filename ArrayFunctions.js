@@ -2,7 +2,8 @@
 // Name		:	Array Functions
 // Author	:	David Conmy
 // ================================================================================================
-function getMMArrayAsColorBlock(array, M){
+function getMMArrayAsColorBlock(array){
+	var M = array.length;
 	var text = "<table>";
 	for(var i=0;i<M;i++){
 		text += "<tr>";
@@ -18,8 +19,8 @@ function getMMArrayAsColorBlock(array, M){
 	return text;
 }
 
-function rotateMMArray(array, M){
-	
+function rotateMMArray(array){
+	var M = array.length;
 	var newArray = new Array(M);
 	for(var i=0;i<M;i++){
 		newArray[i] = new Array(M);
