@@ -1,6 +1,6 @@
 # ArrayQuestion
 
-Given an MxM array, with each slot representing a pixel on an image,
+Given an MxM array, with each field representing a pixel on an image,
 rotate the array 90 degrees to the right.
 
 Follow up
